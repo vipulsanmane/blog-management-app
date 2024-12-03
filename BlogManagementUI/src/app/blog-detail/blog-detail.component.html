@@ -1,0 +1,24 @@
+<a mat-stroked-button href="/">Show All Blogs</a>
+
+<h1> {{ isEdit ? 'Edit' : 'Create'}} Blog Component </h1>
+<div>
+	<form [formGroup]="blogForm">
+		<div style="display: flex; flex-direction: column">
+		<mat-form-field>
+			<mat-label>Username:</mat-label>
+			<input matInput formControlName="username">
+		</mat-form-field>
+		@if (isEdit) {
+			<mat-form-field>
+				<mat-label>Created Date:</mat-label>
+				<input matInput formControlName="createdDate" readonly>
+			</mat-form-field>
+		}
+		<mat-form-field>
+			<mat-label>Text:</mat-label>
+			<textarea matInput type="text" rows="6" formControlName="username" formControlName="text"></textarea>
+		</mat-form-field>
+		<button mat-raised-button color="primary" (click)="saveBlog()" [disabled]="blogForm.invalid">{{isEdit ? 'Update' : 'Save'}}</button>
+		</div>
+	</form>
+</div>

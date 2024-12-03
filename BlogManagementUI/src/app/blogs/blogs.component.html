@@ -1,0 +1,37 @@
+<h1>Blog Management App</h1>
+
+<div class="pill-group">
+    <a mat-flat-button routerLink="Blog/Create">Create Blog </a>
+    <br>
+    <br>
+
+    @if (blogPosts.length == 0) {
+        No Blogs Found. Please add new blogs!
+    }
+
+    @for (item of blogPosts; track item.id) {
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title> {{ item.username }}</mat-card-title>
+                <mat-card-subtitle>{{ item.text }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <div>
+                    Created: {{item.username}}
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>Created Date: {{item.createdDate | date:'medium'}}</span> 
+                </div>
+
+                <div style="margin-left: auto;">
+                    <!-- <button mat-stroked-button [routerLink]="'Blog/Edit'+item.id">Edit</button>
+                    <button mat-stroked-button (click)="deleteBlog(item.id)">Delete</button> -->
+                    <a mat-flat-button [routerLink]="'Blog/Edit/'+item.id">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a mat-flat-button href="" (click)="deleteBlog(item.id)">Delete</a>
+            
+                </div>
+            </mat-card-actions>
+        </mat-card>
+        <br>
+    }
+</div>
