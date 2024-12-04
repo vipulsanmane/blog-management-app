@@ -1,4 +1,4 @@
-#A Blog Management App built using ASP.NET Core 8 and Angular 19#
+# A Blog Management App built using ASP.NET Core 8 and Angular 19
 
 **How to use:**
 1. Clone the repo using repo link.
